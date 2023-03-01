@@ -1,0 +1,52 @@
+.form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.form-inline label {
+    margin: 5px 10px 5px 0;
+}
+
+.form-inline input {
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0;
+}
+
+#checkingTable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#checkingTable td,
+#checkingTable th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+
+.search-box input[type="text"] {
+    height: 40px;
+    padding: 0 40px 0 10px;
+    box-shadow: none;
+    width: 300px;
+}
+
+.search-box button[type="submit"] {
+    position: absolute;
+    top: 133px;
+    left: 375px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.displayNone{
+    display: none;
+}

@@ -1,0 +1,212 @@
+.main {
+    position: relative;
+}
+
+.main .title {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    background-color: #fed330;
+    padding: 10px 20px;
+    border-radius: 100px;
+}
+
+.main:hover .title {
+    box-shadow: 0 0 30px 5px rgba(0, 0, 0, .1);
+    padding: 10px 50px;
+    font-weight: bold;
+    transition: all 0.5s;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 150px;
+    margin-left: 70px;
+}
+
+.process {
+    width: calc(100%/14);
+}
+
+.content .line {
+    width: 100%;
+    position: relative;
+}
+
+.content .line::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #11caf0;
+    background-color: #cff4fc;
+    cursor: pointer;
+}
+
+.content .line::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: #11caf0;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    z-index: -1;
+}
+
+.content .line.short::after {
+    width: 165%;
+}
+
+
+.process:last-child .line::after {
+    content: none;
+}
+
+input:checked~.process .line::before {
+    border-color: #aaa;
+    background-color: #fff;
+}
+
+input:checked~.process .line::after {
+    background-color: #999;
+}
+
+input:checked+.process .line::before {
+    background-color: #11caf0;
+    border-color: #11caf0;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.placeName {
+    font-size: 80%;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    white-space: nowrap;
+}
+
+.line:hover::before,
+.placeName:hover+.line::before {
+    border-color: #11caf0 !important;
+    background-color: #cff4fc !important;
+    transform: scale(1.3);
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .1);
+}
+
+.tooltips {
+    display: none;
+    white-space: nowrap;
+    font-size: 80%;
+    font-weight: bold;
+    z-index: -1;
+    background-color: #000cf7;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    left: -45px;
+    top: 30px;
+    animation-name: fadeout;
+    animation-duration: 0.25s;
+}
+
+.tooltips.short {
+    left: -30px;
+}
+
+.tooltips.short::before {
+    left: 32px;
+}
+
+.tooltips>span {
+    margin-left: 3px;
+    padding: 1px 6px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+}
+
+
+.tooltips::before {
+    content: "";
+    position: absolute;
+    left: 45px;
+    top: -8px;
+    border-bottom: 8px solid #000cf7;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.line:hover .tooltips,
+input:checked+.process .line .tooltips {
+    display: block;
+    animation-name: fadein;
+    animation-duration: 0.25s;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    font-size: 80%;
+    font-weight: bold;
+}
+
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}
